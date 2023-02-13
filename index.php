@@ -549,7 +549,9 @@
             Оставьте свою почту и станьте первым, кто получит скидку на новые самокаты
           </h2>
           <form class="cta-email-form" action="handler.php" method="POST">
-            <input id="user-email" type="email" class="input-email" name="email" placeholder="Введите Ваш email">
+            <div class="cta-email-form-wrapper">
+              <input id="user-email" type="email" class="input-email" name="email" placeholder="Введите Ваш email">
+            </div>
             <button class="button-light cta-email-button">Подписаться</button>
           </form>
         </div>

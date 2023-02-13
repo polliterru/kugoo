@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const headerNav = document.querySelector('.js-header-nav')
   const burgerMenu = document.querySelector('.js-burger-menu')
   const closeBtn = document.querySelector('.js-header-nav-close')
+  const navItems = headerNav.querySelectorAll('.header-nav-item')
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      headerNav.classList.remove('active')
+    })
+  })
 
   burgerMenu.addEventListener('click', () => {
     headerNav.classList.add('active')
