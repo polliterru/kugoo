@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 html {
+  scroll-behavior: smooth;
   font-size: 14px;
 }
 body {
@@ -15,6 +16,7 @@ body.no-scroll {
 }
 img {
   max-width: 100%;
+  max-height: 100%;
 }
 
 /* COMMON STYLE */
@@ -548,25 +550,19 @@ img {
   line-height: 23px;
   color: #282739;
 }
-.cta-form-wrapper {
+.cta-form-row {
   display: flex;
   align-items: center;
   margin-top: 20px;
 }
-.cta-form {
+.input-user-phone {
+  padding: 15px 25px;
+  height: 100%;
   width: 263px;
   overflow: hidden;
   border-radius: 5px;
   border: 2px solid #eaebed;
   background-color: #fff;
-}
-.cta-form input {
-  padding: 15px 25px;
-  width: calc(100% - 40px);
-  height: 100%;
-}
-.input-group-label {
-  cursor: text;
 }
 .cta-button {
   padding: 15px 25px;
@@ -577,7 +573,7 @@ img {
 }
 .checkbox-label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: default;
 }
 .checkbox-input {
@@ -603,6 +599,7 @@ img {
   background-color: #f4f7fb;
   border-radius: 2px;
   cursor: pointer;
+  margin-top: 3px;
 }
 .checkbox-checkmark:after {
   content: "";
@@ -642,6 +639,10 @@ img {
   width: 100%;
   margin: 0 auto;
 }
+.cta-email-form {
+  max-width: 410px;
+  width: 100%;
+}
 .cta-email-wrapper {
   display: flex;
   gap: 100px;
@@ -657,7 +658,7 @@ img {
   text-transform: uppercase;
   color: #ffffff;
 }
-.footer-input-form {
+.cta-email-form {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -966,9 +967,17 @@ img {
   padding-top: 40px;
   padding-bottom: 37px;
   padding-left: 40px;
+  padding-right: 57px;
   background-color: #ffffff;
-  max-width: 720px;
+  max-width: 790px;
   width: 100%;
+}
+.modal-content {
+  width: 100%;
+}
+.modal-img {
+  flex-shrink: 0;
+  margin-top: 8px;
 }
 .modal-title {
   font-weight: 600;
@@ -992,35 +1001,58 @@ img {
   color: #282739;
   margin-bottom: 29px;
 }
-.mogal-form {
+.modal-form {
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
-  margin-top: 123px;
-  border: 1px solid #eaebed;
-  border-radius: 5px;
-  margin-bottom: 20px;
   max-width: 263px;
+  row-gap: 16px;
+  margin-top: 90px;
+  margin-bottom: 20px;
+}
+.modal-form-wrapper {
   width: 100%;
 }
 .input-group-label {
-  position: absolute;
-  top: -40px;
+  display: block;
+  margin-bottom: 20px;
   font-weight: 400;
   font-size: 12px;
   line-height: 17px;
   color: #5D6C7B;
+  cursor: text;
 }
 .modal-input-user-phone {
   padding: 15px 25px;
+  max-width: 263px;
+  width: 100%;
+  border: 1px solid #eaebed;
+  border-radius: 5px;
 }
 .modal-button {
   padding: 15px 57px;
 }
+.modal-checkbox-item {
+  max-width: 228px;
+  margin: 0 auto;
+}
 .modal-close-button {
+  position: absolute;
   top: 20px;
   right: 20px;
-  position: absolute;
   width: 20px;
   height: 20px;
+}
+.modal-close-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.politic-link {
+  text-decoration: underline;
+}
+.modal-politic-link {
+  color: #6F73EE;
 }
 
 @media (max-width: 1400px) {
@@ -1075,6 +1107,9 @@ img {
   }
   .promo-block-2-wrapper {
     max-width: 465px;
+  }
+  .cta-email-text {
+    color: #ffffff;
   }
   .cta-email-wrapper {
     gap: 30px;
@@ -1210,6 +1245,16 @@ img {
   }
   .promo-block-2-title {
     max-width: 570px;
+  }.cta-email-form {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    min-width: 270px;
+    flex-direction: column;
+  }
+  .cta-email-form {
+    max-width: 270px;
+    width: 100%;
   }
   .footer-top {
     padding: 40px 0 40px;
@@ -1246,12 +1291,11 @@ img {
     line-height: 40px;
     margin-bottom: 15px;
   }
-  .mogal-form {
+  .modal-form {
     margin-top: 60px;
   }
   .input-group-label {
-    position: absolute;
-    top: -20px;
+    margin-bottom: 10px;
   }
   .modal-button {
     padding: 15px 0;
@@ -1281,6 +1325,7 @@ img {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    row-gap: 15px;
   }
   .cta-button {
     margin-left: 0;
@@ -1288,6 +1333,12 @@ img {
   }
   .cta-email {
     margin-top: 40px;
+  }
+  .footer-top-list-content {
+    display: flex;
+    row-gap: 30px;
+    column-gap: 0;
+    flex-direction: column;
   }
   .footer-bottom {
     display: flex;
@@ -1415,12 +1466,17 @@ img {
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  .cta-form {
+  .cta-form-row {
     width: 100%;
   }
-  .footer-input-form {
+  .cta-email-form {
+    max-width: 100%;
+    width: 100%;
+  }
+  .cta-email-form {
     row-gap: 15px;
-    flex-wrap: wrap;
+    min-width: 100%;
+    width: 100%;
   }
   .footer-top {
     display: flex;

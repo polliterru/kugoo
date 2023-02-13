@@ -20,13 +20,13 @@
           <div class="header-nav-menu-wrapper">
             <ul class="header-nav js-header-nav">
               <li class="header-nav-item">
-                <a href="#!" class="header-nav-link">Сервис</a>
+                <a href="#promo-block" class="header-nav-link">Сервис</a>
               </li>
               <li class="header-nav-item">
-                <a href="#!" class="header-nav-link">Сотрудничество</a>
+                <a href="#promo-block-2" class="header-nav-link">Сотрудничество</a>
               </li>
               <li class="header-nav-item">
-                <a href="#!" class="header-nav-link">Заказать звонок</a>
+                <a href="#cta-section" class="header-nav-link">Заказать звонок</a>
               </li>
               <li class="header-nav-close js-header-nav-close">
                 <svg class="burger-close">
@@ -74,9 +74,9 @@
             </svg>
             Каталог
           </button>
-          <form action="#" class="search-form">
+          <form class="search-form">
             <div class="search-wrapper">
-              <input type="search" name="q" placeholder="Искать самокат KUGO">
+              <input type="text" name="search" placeholder="Искать самокат KUGO">
               <button type="submit" class="button button-search">
                 <svg class="search-icon">
                   <use href="./img/sprite.svg#search"></use>
@@ -113,7 +113,7 @@
     </nav>
   </header>
 
-  <section class="section main">
+  <section class="section main" id="main">
     <div class="main-img">
       <div class="container">
         <div class="main-content">
@@ -152,7 +152,7 @@
     </div>
   </section>
 
-  <section class="section promo-block">
+  <section class="section promo-block" id="promo-block">
     <div class="container">
       <div class="promo-block-wrapper">
         <h2 class="title promo-block-title">Определите максимально подходящую вам модель не&nbsp;теоретически, а на практике</h2>
@@ -195,7 +195,7 @@
     </div>
   </section>
 
-  <section class="section promo-block-2">
+  <section class="section promo-block-2" id="promo-block-2">
     <div class="container promo-block-content">
       <div class="promo-block-2-wrapper">
         <h2 class="title promo-block-2-title">Научим правильной и&nbsp;безопасной езде в городе вас или вашего ребенка</h2>
@@ -503,7 +503,7 @@
     </div>
   </section>
 
-  <section class="section cta-section">
+  <section class="section cta-section" id="cta-section">
     <div class="cta-bg">
       <div class="container cta">
         <picture class="cta-img">
@@ -514,21 +514,28 @@
         <div class="cta-content">
           <h2 class="title cta-title">Нет нужной модели, которую хотите протестировать?</h2>
           <p class="cta-text">Оставьте заявку, и менеджер подберет нужный самокат</p>
-          <div class="cta-form-wrapper">
-            <form action="#" class="cta-form">
+          <form action="handler.php" method="POST" class="cta-form">
+            <div class="cta-form-row">
               <div class="input-group">
-                <input class="input-user-phone" placeholder="+7 (___) __ - __ - __">
+                <input
+                  id="user-phone"
+                  class="input-user-phone"
+                  name="userphone"
+                  type="tel"
+                  placeholder="+7 (___) __ - __ - __"
+                />
               </div>
-            </form>
-            <button class="button cta-button">Оставить заявку на тест-драйв</button>
-          </div>
-          <div class="checkboxes-item">
-            <label class="checkbox-label">
-              <input type="checkbox" class="checkbox-input"/>
-              <span class="checkbox-checkmark"></span>
-              <span class="checkbox-body">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и политикой конфиденциальности</span>
-            </label>
-          </div>
+              <button type="submit" class="button cta-button">Оставить заявку на тест-драйв</button>
+            </div>
+
+            <div class="checkboxes-item">
+              <label class="checkbox-label">
+                <input type="checkbox" class="checkbox-input" name="agreement"/>
+                <span class="checkbox-checkmark"></span>
+                <span class="checkbox-body">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и <span class="politic-link">политикой конфиденциальности</span></span>
+              </label>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -541,12 +548,10 @@
           <h2 class="title-size-M cta-email-text">
             Оставьте свою почту и станьте первым, кто получит скидку на новые самокаты
           </h2>
-          <div class="footer-input-form">
-
-            <input type="email" class="input-email" placeholder="Введите Ваш email">
-
+          <form class="cta-email-form" action="handler.php" method="POST">
+            <input id="user-email" type="email" class="input-email" name="email" placeholder="Введите Ваш email">
             <button class="button-light cta-email-button">Подписаться</button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
@@ -623,7 +628,7 @@
         </div>
         <div class="footer-social">
           <div class="footer-social-wrapper">
-            <a href="#!" class="logo-link">
+            <a href="#main" class="logo-link">
               <h2 class="title footer-logo">Kugoo</h2>
             </a>
             <div class="footer-social-store">
@@ -761,33 +766,79 @@
         <h2 class="title modal-title">Запишитесь на&nbsp;тест-драйв электросамоката</h2>
         <p class="modal-text">и подберите модель для себя</p>
         <p class="modal-cta">Менеджер свяжется с вами в течение 5 минут, чтобы согласовать время.</p>
-        <form action="#!" class="mogal-form">
-          <label class="input-group-label" >Как с вами удобнее связаться?</label>
-          <input type="tel" id="modal-user-phone" class="modal-input-user-phone" placeholder="+7 (___) __ - __ - __">
+        <form action="handler.php" method="POST" class="modal-form">
+          <div class="modal-form-wrapper">
+            <label class="input-group-label" >Как с вами удобнее связаться?</label>
+            <input
+              type="tel"
+              id="modal-user-phone"
+              name="userphone"
+              class="modal-input-user-phone"
+              placeholder="+7 (___) __ - __ - __"
+            />
+          </div>
+          <button type="submit" class="button modal-button">Оформить предзаказ</button>
+
+          <div class="checkboxes-item modal-checkbox-item">
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox-input" name="agreement"/>
+              <span class="checkbox-checkmark modal-checkbox-checkmark"></span>
+              <span class="checkbox-body">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и <span class="modal-politic-link">политикой конфиденциальности</span></span>
+            </label>
+          </div>
         </form>
-        <button class="button modal-button">Оформить предзаказ</button>
-        <div class="checkboxes-item">
-          <label class="checkbox-label">
-            <input type="checkbox" class="checkbox-input"/>
-            <span class="checkbox-checkmark modal-checkbox-checkmark"></span>
-            <span class="checkbox-body">Нажимая на кнопку, вы соглашаетесь на обработку персональных данных и политикой конфиденциальности</span>
-          </label>
-        </div>
       </div>
       <picture class="modal-img">
         <source type="image/webp" srcset="img/mogal-img.webp">
         <source type="image/png" srcset="img/mogal-img.png">
         <img src="./img/mogal-img.png" alt="девушка на скутере">
       </picture>
-      <button class="modal-close js-close-modal">
-        <svg class="modal-close-button">
+      <button class="modal-close-button js-close-modal">
+        <svg>
           <use href="./img/sprite.svg#modal-close"></use>
         </svg>
       </button>
     </div>
   </div>
 
+  <div class="modal modal-success">
+    <div class="modal-overlay js-close-modal"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <h2 class="title modal-title">Ваша заявка отправлена!</h2>
+        <p class="modal-cta">Менеджер свяжется с вами в течение 5 минут, чтобы согласовать время.</p>
+      </div>
+      <picture class="modal-img">
+        <source type="image/webp" srcset="img/mogal-img.webp">
+        <source type="image/png" srcset="img/mogal-img.png">
+        <img src="./img/mogal-img.png" alt="девушка на скутере">
+      </picture>
+      <button class="modal-close-button js-close-modal">
+        <svg>
+          <use href="./img/sprite.svg#modal-close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
 
+  <div class="modal modal-politic">
+    <div class="modal-overlay js-close-modal-politic"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <h2 class="title title-size-M">Политика конфиденциальности</h2>
+        <br>
+        <p>Далеко-далеко за словесными горами в стране гласных, и согласных живут рыбные тексты. Они буквоград знаках букв проектах, вскоре жизни лучше ему города маленькая парадигматическая предложения текст себя моей своих правилами встретил снова, своего вопрос прямо языком он все инициал, одна строчка? Но заманивший, диких агентство он свою рукописи безопасную великий ведущими текст, до заглавных. Толку продолжил родного коварный выйти переулка текст бросил это, снова все сих грустный от всех оксмокс пор. Живет, они. Над снова о бросил заманивший меня живет залетают толку парадигматическая жизни, которое взгляд lorem текста, текстов рукопись не по всей рыбными дороге, назад правилами! Текстами знаках текста грустный переписывается, коварных страну.</p>
+      </div>
+      <button class="modal-close-button js-close-modal-politic">
+        <svg>
+          <use href="./img/sprite.svg#modal-close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/imask"></script>
+  <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
