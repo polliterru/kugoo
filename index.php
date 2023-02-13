@@ -65,7 +65,7 @@
       </div>
       <div class="container">
         <div class="search">
-          <a href="#!" class="logo-link">
+          <a href="#main" class="logo-link">
             <h2 class="title logo">KUGOO</h2>
           </a>
           <button class="button search-button">

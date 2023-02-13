@@ -233,6 +233,10 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  fill: #5D6C7B;
+}
+.control-block-link:hover {
+  fill: #6F73EE;
 }
 .control-block-text {
   margin-left: 12px;
@@ -1246,6 +1250,9 @@ img {
   }
   .nav-social-icon:hover {
     fill: #5d6c7b;
+  }
+  .control-block-link:hover {
+    fill: #5D6C7B;
   }
   .search-form {
     max-width: 310px;
